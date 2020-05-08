@@ -70,7 +70,7 @@ pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
 ```
 
-7.2. 安装 whitenoise，可以在production阶段对static文件server，不需要通过nginx。whitenoises使用方法见http://whitenoise.evans.io/en/stable/，注意版本的差异。本库使用5.0.1版
+7.2. 安装 whitenoise，可以在production阶段对static文件server，不需要通过nginx。whitenoises使用方法见http://whitenoise.evans.io/en/stable/  ，注意版本的差异。本库使用5.0.1版
 ```
 pip install whitenoise==5.0.1
 
@@ -146,7 +146,15 @@ export default App;
 
 
 9.bug 问题
+
 9.1 npm run start 正常，但是 npm run build后的html显示不正常，见https://stackoverflow.com/questions/46235798/relative-path-in-index-html-after-build 
+解决方法是在 package.json中增加 "homepage": "./",
+```
+  "name": "bee_front",
+  "version": "0.1.0",
+  "homepage": "./",
+```
+
 9.2 上述9.1解决后，django下面仍然不显示，是因为 STATICFILES_DIRS设成了
 ```
 os.path.join(BASE_DIR, 'static')
@@ -157,6 +165,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 ```
+
 9.3 django admin 突然css not working, 报错信息为：
 [08/May/2020 21:35:08] "GET /admin/static/admin/css/dashboard.css HTTP/1.1" 404 4161
 其中 static 是在settings.py中设置的STATIC_URL = 'static/'
