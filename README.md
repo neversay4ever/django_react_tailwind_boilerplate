@@ -1,9 +1,9 @@
-从 react_tailwind_boilerplate 库 和 https://github.com/nicholaskajoh/React-Django改装，tailwindcss版本改为1.4.0 以上。
+从 react_tailwind_boilerplate 库 和 https://github.com/nicholaskajoh/React-Django   改装，tailwindcss版本改为1.4.0 以上。
 react_tailwind_boilerplate 直接从create-react-app 开始
 
 # 背景
 本库的目的是解决在django中使用react的问题，基本思路是：
-1. react可以独立开发，热启动，能用tailwindcss的自定义功能。这些在simpleDjangoReact库里是做不到的。参考https://github.com/nicholaskajoh/React-Django这个库的做法，在react app里放django，而不是django app里放react，可以最大化发挥create-react-app的强大功能。
+1. react可以独立开发，热启动，能用tailwindcss的自定义功能。这些在simpleDjangoReact库里是做不到的。参考  https://github.com/nicholaskajoh/React-Django    这个库的做法，在react app里放django，而不是django app里放react，可以最大化发挥create-react-app的强大功能。
 2. 利用django的注册系统，所以选择通过django的view访问react的html的方式。hmtl来自react的build文件夹下的index.html，因此django的template文件夹定义为
 ```python
         'DIRS': [
@@ -11,10 +11,10 @@ react_tailwind_boilerplate 直接从create-react-app 开始
         ],
 ```
 3. 通过django-rest-framework的API传数据到react。
-react build成的html被当作是django的一个正常的html template，因此react访问的域名按道理只需要相对域名，即http://127.0.0.1:8000/api/lead/后面的api/lead部分；
-但在react dev阶段，因为我们都是通过http://127.0.0.1:3000/来热启动react，因此需要在react里显式指定http://127.0.0.1:8000部分，并且在django的dev模式下需要安装django-cors-headers允许跨域请求。
+react build成的html被当作是django的一个正常的html template，因此react访问的域名按道理只需要相对域名，即http://127.0.0.1:8000/api/lead/  后面的api/lead部分；
+但在react dev阶段，因为我们都是通过http://127.0.0.1:3000/   来热启动react，因此需要在react里显式指定http://127.0.0.1:8000   部分，并且在django的dev模式下需要安装django-cors-headers允许跨域请求。
 
-4. dev下的API域名处理，参考 https://medium.com/@tacomanator/environments-with-create-react-app-7b645312c09d， 将package.json里的
+4. dev下的API域名处理，参考 https://medium.com/@tacomanator/environments-with-create-react-app-7b645312c09d ， 将package.json里的
 ```
     "start": "react-scripts start",
 ```
@@ -174,3 +174,7 @@ python manage.py createsuperuser
 ```
 python manage.py collectstatic
 ```
+
+11. 需要尝试的
+11.1 在django的app里，使用react+tailwind，每个app里的build文件夹是一个app，这样一个django可以联合django template和多个独立开发的app，使用django的router进行不同内容主题的页面跳转。
+11.2 增加login/logout等管理，将app置于django的用户权限管理之下
