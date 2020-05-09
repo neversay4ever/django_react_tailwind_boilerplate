@@ -57,7 +57,7 @@ const url = process.env.REACT_APP_API_DOMAIN + '/api/lead'
 ```shell
 git clone https://github.com/neversay4ever/django_react_tailwind_boilerplate django_react_project
 cd django_react_project
-npm i install
+npm install
 npm run build
 virtualenv -p python3 venv
 source venv/bin/activate
