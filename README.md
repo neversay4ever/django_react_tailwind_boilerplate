@@ -61,7 +61,7 @@ npm install
 npm run build
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r requirements -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 python manage.py makemigrations
 python manage.py migrate
 python manage.py collectstatic
