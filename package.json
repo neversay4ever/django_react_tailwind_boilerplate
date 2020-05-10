@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "npm run watch:css && REACT_APP_API_DOMAIN='http://127.0.0.1:8000' react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build": "npm run build:css && REACT_APP_API_DOMAIN='' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o build/main.css",
