@@ -191,6 +191,11 @@ STATICFILES_DIRS = [
 ]
 ```
 
+-  STATIC_URL = '/' 时， 在django不显示，djano-admin css 正常，
+   STATIC_URL = 'static/' 时， 在django可显示，djano-admin css 不正常，
+   STATIC_URL = '/static/' 时，在django可显示，djano-admin css 正常，
+
+
 - django admin css not working,  报错信息为：
   "GET /admin/static/admin/css/dashboard.css HTTP/1.1" 404 
   其中 static 是在settings.py中设置的STATIC_URL = 'static/'，将 settings.py中的  STATIC_URL = '/'  即可。
